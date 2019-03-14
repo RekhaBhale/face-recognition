@@ -1,0 +1,44 @@
+{% extends 'layout_police.html' %}
+
+{% block content %}
+
+<html>
+<head>
+    <title>Facial Recognition Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='lodash.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='immutable.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='axios.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <style>
+        .div{
+            margin-left:350px;
+            text-align:center;
+            font-size:20px;
+            border:2px solid black;
+            width:620px;
+        }
+        h1{
+             margin-left:300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CRIMINAL PROFILE</h1>
+    <div class="div">
+        <br><br>
+        {% for row in rows %}
+        <p>Name: {{row["name"]}}</p><br>
+        <p>Date of Birth: {{row["dob"]}}</p><br>
+        <p>Gender:{{row["gender"]}}</p><br>
+        <p>Contact Number: {{row["contact"]}}</p><br>
+        <p>Address: {{row["address"]}}</p><br>
+        <p>Aadhar Number: {{row["aadhar"]}}</p><br>
+        <p>Crime: {{row["crime"]}}</p><br>
+        <p>Act: {{row["act"]}}</p><br>
+        {% endfor %}
+    </div>
+    <br><br>
+</body>
+{% endblock %}
